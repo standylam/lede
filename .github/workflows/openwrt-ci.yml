@@ -164,9 +164,12 @@ jobs:
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Socks=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
+          CONFIG_PACKAGE_luci-app-upnp=y
           CONFIG_PACKAGE_luci-app-ttyd=n
           CONFIG_PACKAGE_luci-app-v2ray-server=n
           CONFIG_PACKAGE_luci-app-verysync=n
+          CONFIG_PACKAGE_luci-app-watchcat=y
           CONFIG_PACKAGE_luci-app-webadmin=y
           CONFIG_PACKAGE_luci-app-wireguard=n
           CONFIG_PACKAGE_luci-app-wrtbwmon=n
@@ -180,7 +183,7 @@ jobs:
 
           # 常用软件包:
           cat >> .config <<EOF
-          CONFIG_PACKAGE_curl=y
+          CONFIG_PACKAGE_curl=n
           CONFIG_PACKAGE_htop=y
           CONFIG_PACKAGE_nano=y
           CONFIG_PACKAGE_screen=y
