@@ -12,7 +12,7 @@ name: OpenWrt-CI
 on:
   push:
     branches: 
-      - CI-demo
+      - master
   #     ↑↑↑ 改成你的分支名, 一般是master
   # schedule:
   #   - cron: 0 20 * * *
@@ -118,7 +118,7 @@ jobs:
 
           # 编译UEFI固件:
           cat >> .config <<EOF
-          CONFIG_EFI_IMAGES=n
+          CONFIG_EFI_IMAGES is not set
           EOF
 
           # IPv6支持:
