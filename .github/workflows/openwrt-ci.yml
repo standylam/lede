@@ -129,6 +129,7 @@ jobs:
 
           # 多文件系统支持:
           cat >> .config <<EOF
+          CONFIG_PACKAGE_kmod-mmc=y
           CONFIG_PACKAGE_kmod-fs-nfs=y
           CONFIG_PACKAGE_kmod-fs-nfs-common=y
           CONFIG_PACKAGE_kmod-fs-nfs-v3=y
@@ -139,18 +140,21 @@ jobs:
 
           # USB3.0支持:
           cat >> .config <<EOF
+          CONFIG_PACKAGE_kmod-usb-core=y
           CONFIG_PACKAGE_kmod-usb-ohci=y
           CONFIG_PACKAGE_kmod-usb-ohci-pci=y
           CONFIG_PACKAGE_kmod-usb2=y
           CONFIG_PACKAGE_kmod-usb2-pci=y
           CONFIG_PACKAGE_kmod-usb3=y
+          CONFIG_PACKAGE_kmod-usb-storage=y
           EOF
 
           # 常用LuCI插件选择:
           cat >> .config <<EOF
           CONFIG_PACKAGE_luci-app-adbyby-plus=y
+          CONFIG_PACKAGE_luci-app-samba=y
           CONFIG_PACKAGE_luci-app-aria2=n
-          CONFIG_PACKAGE_luci-app-baidupcs-web=n
+          CONFIG_PACKAGE_luci-app-baidupcs-web=y
           CONFIG_PACKAGE_luci-app-docker=n
           CONFIG_PACKAGE_luci-app-frpc=n
           CONFIG_PACKAGE_luci-app-hd-idle=n
@@ -172,7 +176,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-watchcat=y
           CONFIG_PACKAGE_luci-app-webadmin=y
           CONFIG_PACKAGE_luci-app-wireguard=n
-          CONFIG_PACKAGE_luci-app-wrtbwmon=n
+          CONFIG_PACKAGE_luci-app-wrtbwmon=y
           EOF
 
           # LuCI主题:
@@ -219,5 +223,5 @@ jobs:
       - name : Upload artifact
         uses: actions/upload-artifact@master
         with:
-          name: OpenWrt firmware
+          name: OpenWrt firmware For Newifi D1
           path: bin/targets
