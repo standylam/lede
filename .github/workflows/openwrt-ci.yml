@@ -27,7 +27,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
         with:
-          ref: CI-demo
+          ref: master
         #      ↑↑↑ 改成你的分支名, 一般是master
 
       - name: Initialization environment
@@ -103,9 +103,12 @@ jobs:
 
           # 编译x64固件:
           cat >> .config <<EOF
-          CONFIG_TARGET_x86=y
-          CONFIG_TARGET_x86_64=y
-          CONFIG_TARGET_x86_64_Generic=y
+          #CONFIG_TARGET_x86=n
+          #CONFIG_TARGET_x86_64=n
+          #CONFIG_TARGET_x86_64_Generic=n
+          CONFIG_TARGET_ramips=y
+          CONFIG_TARGET_ramips_mt7621=y
+          CONFIG_TARGET_ramips_mt7621_DEVICE_lenovo_newifi-d1=y
           EOF
 
           # 固件压缩:
@@ -115,13 +118,13 @@ jobs:
 
           # 编译UEFI固件:
           cat >> .config <<EOF
-          CONFIG_EFI_IMAGES=y
+          CONFIG_EFI_IMAGES=n
           EOF
 
           # IPv6支持:
           cat >> .config <<EOF
-          CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
-          CONFIG_PACKAGE_ipv6helper=y
+          CONFIG_PACKAGE_dnsmasq_full_dhcpv6=n
+          CONFIG_PACKAGE_ipv6helper=n
           EOF
 
           # 多文件系统支持:
@@ -129,8 +132,8 @@ jobs:
           CONFIG_PACKAGE_kmod-fs-nfs=y
           CONFIG_PACKAGE_kmod-fs-nfs-common=y
           CONFIG_PACKAGE_kmod-fs-nfs-v3=y
-          CONFIG_PACKAGE_kmod-fs-nfs-v4=y
-          CONFIG_PACKAGE_kmod-fs-ntfs=y
+          CONFIG_PACKAGE_kmod-fs-nfs-v4=n
+          CONFIG_PACKAGE_kmod-fs-ntfs=n
           CONFIG_PACKAGE_kmod-fs-squashfs=y
           EOF
 
@@ -146,27 +149,27 @@ jobs:
           # 常用LuCI插件选择:
           cat >> .config <<EOF
           CONFIG_PACKAGE_luci-app-adbyby-plus=y
-          CONFIG_PACKAGE_luci-app-aria2=y
-          CONFIG_PACKAGE_luci-app-baidupcs-web=y
-          CONFIG_PACKAGE_luci-app-docker=y
-          CONFIG_PACKAGE_luci-app-frpc=y
-          CONFIG_PACKAGE_luci-app-hd-idle=y
-          CONFIG_PACKAGE_luci-app-kodexplorer=y
+          CONFIG_PACKAGE_luci-app-aria2=n
+          CONFIG_PACKAGE_luci-app-baidupcs-web=n
+          CONFIG_PACKAGE_luci-app-docker=n
+          CONFIG_PACKAGE_luci-app-frpc=n
+          CONFIG_PACKAGE_luci-app-hd-idle=n
+          CONFIG_PACKAGE_luci-app-kodexplorer=n
           CONFIG_PACKAGE_luci-app-minidlna=y
-          CONFIG_PACKAGE_luci-app-openvpn=y
-          CONFIG_PACKAGE_luci-app-openvpn-server=y
-          CONFIG_PACKAGE_luci-app-qbittorrent=y
+          CONFIG_PACKAGE_luci-app-openvpn=n
+          CONFIG_PACKAGE_luci-app-openvpn-server=n
+          CONFIG_PACKAGE_luci-app-qbittorrent=n
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Socks=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
-          CONFIG_PACKAGE_luci-app-ttyd=y
-          CONFIG_PACKAGE_luci-app-v2ray-server=y
-          CONFIG_PACKAGE_luci-app-verysync=y
+          CONFIG_PACKAGE_luci-app-ttyd=n
+          CONFIG_PACKAGE_luci-app-v2ray-server=n
+          CONFIG_PACKAGE_luci-app-verysync=n
           CONFIG_PACKAGE_luci-app-webadmin=y
-          CONFIG_PACKAGE_luci-app-wireguard=y
-          CONFIG_PACKAGE_luci-app-wrtbwmon=y
+          CONFIG_PACKAGE_luci-app-wireguard=n
+          CONFIG_PACKAGE_luci-app-wrtbwmon=n
           EOF
 
           # LuCI主题:
@@ -182,7 +185,7 @@ jobs:
           CONFIG_PACKAGE_nano=y
           CONFIG_PACKAGE_screen=y
           CONFIG_PACKAGE_tree=y
-          CONFIG_PACKAGE_vim-fuller=y
+          CONFIG_PACKAGE_vim-fuller=n
           CONFIG_PACKAGE_wget=y
           EOF
 
