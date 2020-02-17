@@ -136,6 +136,8 @@ jobs:
           CONFIG_PACKAGE_kmod-fs-nfs-v4=n
           CONFIG_PACKAGE_kmod-fs-ntfs=n
           CONFIG_PACKAGE_kmod-fs-squashfs=y
+          CONFIG_PACKAGE_kmod-fs-ext3=y
+          CONFIG_PACKAGE_kmod-fs-ext4=y
           EOF
 
           # USB3.0支持:
@@ -147,6 +149,9 @@ jobs:
           CONFIG_PACKAGE_kmod-usb2-pci=y
           CONFIG_PACKAGE_kmod-usb3=y
           CONFIG_PACKAGE_kmod-usb-storage=y
+          CONFIG_PACKAGE_block-hotplug=y
+          CONFIG_PACKAGE_block-extroot=y
+          CONFIG_PACKAGE_block-mount=y
           EOF
 
           # 常用LuCI插件选择:
@@ -194,6 +199,9 @@ jobs:
           CONFIG_PACKAGE_tree=y
           CONFIG_PACKAGE_vim-fuller=n
           CONFIG_PACKAGE_wget=y
+          CONFIG_PACKAGE_mount-utils=y
+          CONFIG_PACKAGE_e2fsprogs=y
+          CONFIG_PACKAGE_fdisk=y
           EOF
 
           # 取消编译VMware镜像以及镜像填充 (不要删除被缩进的注释符号):
