@@ -106,19 +106,35 @@ jobs:
           #CONFIG_TARGET_x86=n
           #CONFIG_TARGET_x86_64=n
           #CONFIG_TARGET_x86_64_Generic=n
-          CONFIG_TARGET_ramips=y
-          CONFIG_TARGET_ramips_mt7621=y
-          CONFIG_TARGET_ramips_mt7621_DEVICE_lenovo_newifi-d1=y
+          #CONFIG_TARGET_ramips=y
+          #CONFIG_TARGET_ramips_mt7621=y
+          #CONFIG_TARGET_ramips_mt7621_DEVICE_lenovo_newifi-d1=y
+          CONFIG_TARGET_brcm2708=y
+          CONFIG_TARGET_brcm2708_bcm2710=y
+          CONFIG_TARGET_MULTI_PROFILE=y
+          CONFIG_TARGET_DEVICE_brcm2708_bcm2710_DEVICE_rpi-3=y
+          CONFIG_TARGET_DEVICE_PACKAGES_brcm2708_bcm2710_DEVICE_rpi-3=""
           EOF
 
           # 固件压缩:
-          cat >> .config <<EOF
-          CONFIG_TARGET_IMAGES_GZIP=y
-          EOF
+          #cat >> .config <<EOF
+          #CONFIG_TARGET_IMAGES_GZIP=y
+          #EOF
 
           # 编译UEFI固件:
           cat >> .config <<EOF
-          CONFIG_EFI_IMAGES is not set
+          #CONFIG_EFI_IMAGES is not set
+          CONFIG_ALL_KMODS=y
+          CONFIG_ALL_NONSHARED=y
+          CONFIG_DEVEL=y
+          CONFIG_TARGET_PER_DEVICE_ROOTFS=y
+          CONFIG_AUTOREMOVE=y
+          CONFIG_BUILDBOT=y
+          CONFIG_IB=y
+          CONFIG_IMAGEOPT=y
+          CONFIG_KERNEL_BUILD_DOMAIN="buildhost"
+          CONFIG_KERNEL_BUILD_USER="builder"
+
           EOF
 
           # IPv6支持:
