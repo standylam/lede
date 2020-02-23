@@ -63,7 +63,7 @@ jobs:
           rm -f ./.config*
           touch ./.config
 
-	  cat >> .config <<EOF
+	  cat >> .config << EOF
 	  CONFIG_TARGET_brcm2708=y
 	  CONFIG_TARGET_brcm2708_bcm2710=y
 	  CONFIG_TARGET_MULTI_PROFILE=y
